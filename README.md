@@ -17,15 +17,22 @@ Provides two MCP servers and associated skills/commands for seamless Git and Git
 - **GitHub MCP** (`@modelcontextprotocol/server-github`) — Full GitHub API: issues, PRs, repos, branches, code search, reviews, file management
 - **Git MCP** (`mcp-server-git`) — Local git operations: status, diff, log, commit, branch, checkout, reset
 
-## Structure
+## Commands
 
-```
-.claude-plugin/plugin.json   Plugin metadata
-.mcp.json                    MCP server definitions
-skills/git-github/SKILL.md   Auto-trigger skill with full capability reference
-commands/pr-create.md         Create PR from current branch
-commands/repo-setup.md        Verify git/github environment setup
-```
+| Command | Description |
+|---------|-------------|
+| `/pr-create` | Create a pull request from the current branch |
+| `/repo-setup` | Check gh auth, PAT token, git config, MCP server health |
+
+## Worktree Workflow
+
+Use git worktrees for parallel development and safe experimentation:
+
+- **Risky refactors** — `/branch` to fork your session before major changes
+- **Sub-agents** — Run agents in isolated worktrees so they don't touch the main branch
+- **Parallel features** — Multiple Claude sessions on the same repo without conflicts
+
+Claude Code has built-in worktree support — start a session with the worktree option or use `/branch` to fork mid-session.
 
 ## Setup
 
@@ -39,13 +46,6 @@ commands/repo-setup.md        Verify git/github environment setup
 - `node`/`npm` — for GitHub MCP server (`npx`)
 - `uv`/`uvx` — for Git MCP server (`uvx`)
 - Git configured with `user.name` and `user.email`
-
-## Commands
-
-| Command | Description |
-|---------|-------------|
-| `/pr-create` | Create a pull request from the current branch |
-| `/repo-setup` | Check gh auth, PAT token, git config, MCP server health |
 
 ## License
 
