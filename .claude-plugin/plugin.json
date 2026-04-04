@@ -2,7 +2,10 @@
   "name": "git-github",
   "version": "1.0.0",
   "description": "Git + GitHub MCP integration for Claude Code — local git operations and GitHub API via MCP servers",
-  "author": "SkyWalker2506",
+  "author": {
+    "name": "Musab Kara",
+    "url": "https://github.com/SkyWalker2506"
+  },
   "category": "development",
   "keywords": ["git", "github", "pr", "issue", "branch", "commit", "diff", "clone"],
   "requires": {

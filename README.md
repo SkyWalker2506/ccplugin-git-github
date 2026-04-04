@@ -1,6 +1,14 @@
-# ccplugin-git-github
+# git-github — Claude Code Plugin
+
+by [Musab Kara](https://linkedin.com/in/musab-kara-85580612a) · [GitHub](https://github.com/SkyWalker2506)
 
 Claude Code plugin for Git + GitHub MCP integration.
+
+## Install
+
+```bash
+claude plugin install git-github@musabkara-claude-marketplace
+```
 
 ## What it does
 
@@ -42,3 +50,8 @@ commands/repo-setup.md        Verify git/github environment setup
 ## License
 
 MIT
+
+## Part of
+
+- [claude-config](https://github.com/SkyWalker2506/claude-config) — Multi-Agent OS for Claude Code (110 agents, local-first routing)
+- [Plugin Marketplace](https://github.com/SkyWalker2506/claude-marketplace) — Browse & install all 14 plugins
