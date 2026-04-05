@@ -24,6 +24,16 @@ Provides two MCP servers and associated skills/commands for seamless Git and Git
 | `/pr-create` | Create a pull request from the current branch |
 | `/repo-setup` | Check gh auth, PAT token, git config, MCP server health |
 
+## Skill: `git-github`
+
+The `git-github` skill auto-activates when you mention git, github, PR, branch, commit, diff, merge, clone, push, or review. It provides Claude with full awareness of both MCP servers and their capabilities.
+
+**GitHub MCP tools:** create/list/get/update issues, create/merge/review PRs, manage repos, branches, files, code search.
+
+**Git MCP tools:** status, diff (staged/unstaged), log, commit, add, reset, checkout, branch, create-branch.
+
+**Common workflows baked in:** Create PR, review PR, issue triage — with MCP-first guidance and CLI fallbacks for operations not covered (e.g. `git rebase`, `gh auth status`).
+
 ## Worktree Workflow
 
 Use git worktrees for parallel development and safe experimentation:
@@ -53,5 +63,5 @@ MIT
 
 ## Part of
 
-- [claude-config](https://github.com/SkyWalker2506/claude-config) — Multi-Agent OS for Claude Code (110 agents, local-first routing)
+- [claude-config](https://github.com/SkyWalker2506/claude-config) — Multi-Agent OS for Claude Code (134 agents, local-first routing)
 - [Plugin Marketplace](https://github.com/SkyWalker2506/claude-marketplace) — Browse & install all 14 plugins
