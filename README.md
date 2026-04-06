@@ -26,13 +26,11 @@ Provides two MCP servers and associated skills/commands for seamless Git and Git
 
 ## Skill: `git-github`
 
-The `git-github` skill auto-activates when you mention git, github, PR, branch, commit, diff, merge, clone, push, or review. It provides Claude with full awareness of both MCP servers and their capabilities.
+The `git-github` skill auto-activates when you mention git, github, PR, branch, commit, diff, merge, clone, push, or review.
 
 **GitHub MCP tools:** create/list/get/update issues, create/merge/review PRs, manage repos, branches, files, code search.
 
 **Git MCP tools:** status, diff (staged/unstaged), log, commit, add, reset, checkout, branch, create-branch.
-
-**Common workflows baked in:** Create PR, review PR, issue triage — with MCP-first guidance and CLI fallbacks for operations not covered (e.g. `git rebase`, `gh auth status`).
 
 ## Worktree Workflow
 
@@ -42,19 +40,11 @@ Use git worktrees for parallel development and safe experimentation:
 - **Sub-agents** — Run agents in isolated worktrees so they don't touch the main branch
 - **Parallel features** — Multiple Claude sessions on the same repo without conflicts
 
-Claude Code has built-in worktree support — start a session with the worktree option or use `/branch` to fork mid-session.
-
-## Setup
-
-1. Install the plugin in your Claude Code project
-2. Set your GitHub Personal Access Token in `.mcp.json` or `~/.claude/secrets/secrets.env`
-3. Run `/repo-setup` to verify everything is configured
-
 ## Requirements
 
-- `gh` CLI (GitHub CLI) — for PR creation and auth
-- `node`/`npm` — for GitHub MCP server (`npx`)
-- `uv`/`uvx` — for Git MCP server (`uvx`)
+- `gh` CLI (GitHub CLI)
+- `node`/`npm` — for GitHub MCP server
+- `uv`/`uvx` — for Git MCP server
 - Git configured with `user.name` and `user.email`
 
 ## License
@@ -64,4 +54,5 @@ MIT
 ## Part of
 
 - [claude-config](https://github.com/SkyWalker2506/claude-config) — Multi-Agent OS for Claude Code (134 agents, local-first routing)
-- [Plugin Marketplace](https://github.com/SkyWalker2506/claude-marketplace) — Browse & install all 14 plugins
+- [Plugin Marketplace](https://github.com/SkyWalker2506/claude-marketplace) — Browse & install all 18 plugins
+- [ClaudeHQ](https://github.com/SkyWalker2506/ClaudeHQ) — Claude ecosystem HQ
