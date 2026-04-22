@@ -95,3 +95,40 @@ Local git repository operations via MCP. Capabilities:
 2. `get_issue` — read issue details
 3. `add_issue_comment` — respond or ask for info
 4. `update_issue` — add labels, assign, close
+
+### Feature Branch Workflow (end-to-end)
+1. `git_checkout` base=`main` — ensure you're on main
+2. CLI: `git pull origin main` — get latest
+3. `git_create_branch` — create `feature/<name>` branch
+4. Work, then: `git_add` + `git_commit` (repeat)
+5. CLI: `git push -u origin feature/<name>`
+6. `create_pull_request` — open PR, set base=`main`
+7. After merge: `git_checkout` base=`main` + CLI: `git pull origin main`
+
+### Stash Workflow (CLI-only — MCP has no stash tool)
+```bash
+git stash push -m "wip: description"
+git stash list             # see all stashes
+git stash pop              # re-apply latest stash
+git stash apply stash@{2}  # re-apply specific stash
+git stash drop             # discard top stash
+```
+
+### Rebase Workflow (CLI-only — MCP has no rebase tool)
+```bash
+git fetch origin main
+git rebase origin/main          # rebase feature branch on main
+git rebase --continue           # after resolving conflicts
+git rebase --abort              # abort if something goes wrong
+git push --force-with-lease     # push rebased branch (safer than --force)
+```
+
+Use `--force-with-lease` instead of `--force` — it fails if someone else pushed to the branch.
+
+### Hotfix Workflow
+1. `git_create_branch` name=`hotfix/<issue>` from=`main`
+2. Fix the issue
+3. `git_add` + `git_commit` with `fix:` prefix
+4. CLI: `git push -u origin hotfix/<issue>`
+5. `create_pull_request` — base=`main`, title `fix: ...`
+6. After merge: delete hotfix branch

@@ -26,6 +26,23 @@ gh auth status
   - `~/.claude/secrets/secrets.env` as `GITHUB_PERSONAL_ACCESS_TOKEN=ghp_...`
   - Environment variable
 
+**Required PAT scopes (classic token):**
+| Scope | Reason |
+|-------|--------|
+| `repo` | Full repository access (create, push, PRs, issues) |
+| `read:org` | Read organization membership |
+| `read:user` | Read user profile |
+
+**Minimum scopes for read-only:**
+- `public_repo` — public repos only
+- `read:user` — user info
+
+**Create token:** https://github.com/settings/tokens → "Generate new token (classic)"
+
+**Fine-grained token alternative:** GitHub Settings → Developer settings → Fine-grained tokens
+- Repository access: selected repos or all
+- Permissions: Contents (R/W), Issues (R/W), Pull requests (R/W), Metadata (R)
+
 ### 3. Check git config
 
 ```bash

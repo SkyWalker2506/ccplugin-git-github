@@ -7,6 +7,12 @@ Claude Code plugin for Git + GitHub MCP integration.
 ## Install
 
 ```bash
+# From source
+git clone https://github.com/SkyWalker2506/ccplugin-git-github
+cd ccplugin-git-github
+./install.sh
+
+# Or via marketplace
 claude plugin install git-github@musabkara-claude-marketplace
 ```
 
@@ -40,11 +46,34 @@ Use git worktrees for parallel development and safe experimentation:
 - **Sub-agents** — Run agents in isolated worktrees so they don't touch the main branch
 - **Parallel features** — Multiple Claude sessions on the same repo without conflicts
 
+## Quick Start
+
+```bash
+./install.sh
+cp .mcp.json.template .mcp.json
+# Edit .mcp.json — set GITHUB_PERSONAL_ACCESS_TOKEN
+# In Claude Code: /repo-setup
+```
+
+## GitHub PAT — Required Scopes
+
+Get your token: https://github.com/settings/tokens
+
+| Scope | Reason |
+|-------|--------|
+| `repo` | Full repository access (create, push, PRs, issues) |
+| `read:org` | Read organization membership |
+| `read:user` | Read user profile |
+
+Minimum for read-only: `public_repo` + `read:user`.
+Fine-grained token: Contents (R/W), Issues (R/W), Pull requests (R/W), Metadata (R).
+
 ## Requirements
 
-- `gh` CLI (GitHub CLI)
+- `git` — version control
 - `node`/`npm` — for GitHub MCP server
-- `uv`/`uvx` — for Git MCP server
+- `uv`/`uvx` — for Git MCP server (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
+- `gh` CLI — optional but recommended for fallback operations
 - Git configured with `user.name` and `user.email`
 
 ## License
